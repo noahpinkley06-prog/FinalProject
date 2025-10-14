@@ -1,1 +1,6 @@
-final project-Noah-Kacie-Cory-Cole
+CS222 Final Project
+
+Noah Pinkley, 
+Kacie Inscoe,
+Cory Paynes,
+Cole Shuler
