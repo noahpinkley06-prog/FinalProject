@@ -25,15 +25,13 @@ public class GUI extends Application {
         VBox root = new VBox(10);
         root.setStyle("-fx-padding: 10;");
 
-        Label title = new Label("Wikipedia Revision Viewer");
+        Label title = new Label("Kids Game");
 
-        HBox inputRow = new HBox(5, new Label("Article:"), articleInput, searchButton);
-
-        root.getChildren().addAll(title, inputRow, redirectLabel, resultsBox);
+        root.getChildren().addAll(title);
 
         Scene scene = new Scene(root, 600, 400);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Wikipedia GUI");
+        primaryStage.setTitle("Kids Game");
         primaryStage.show();
     }
 }
