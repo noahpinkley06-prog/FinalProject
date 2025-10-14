@@ -1,69 +1,32 @@
 plugins {
-    java
-    application
-    id("org.javamodularity.moduleplugin") version "1.8.15"
-    id("org.openjfx.javafxplugin") version "0.0.13"
-    id("org.beryx.jlink") version "2.25.0"
+    id("java")
+    id("application")
+    id("org.openjfx.javafxplugin") version "0.1.0"
 }
 
-group = "com.example"
+group = "edu.bsu.cs"
 version = "1.0-SNAPSHOT"
-
 repositories {
     mavenCentral()
 }
-
-val junitVersion = "5.12.1"
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(23)
-    }
-}
-
-tasks.withType<JavaCompile> {
-    options.encoding = "UTF-8"
-}
-
-application {
-    mainModule.set("com.example.finalproject")
-    mainClass.set("com.example.finalproject.HelloApplication")
-}
-
-javafx {
-    version = "21.0.6"
-    modules = listOf("javafx.controls", "javafx.fxml", "javafx.web", "javafx.swing", "javafx.media")
-}
-
 dependencies {
-    implementation("org.controlsfx:controlsfx:11.2.1")
-    implementation("com.dlsc.formsfx:formsfx-core:11.6.0") {
-        exclude(group = "org.openjfx")
-    }
-    implementation("net.synedra:validatorfx:0.6.1") {
-        exclude(group = "org.openjfx")
-    }
-    implementation("org.kordamp.ikonli:ikonli-javafx:12.3.1")
-    implementation("org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0")
-    implementation("eu.hansolo:tilesfx:21.0.9") {
-        exclude(group = "org.openjfx")
-    }
-    implementation("com.github.almasb:fxgl:17.3") {
-        exclude(group = "org.openjfx")
-        exclude(group = "org.jetbrains.kotlin")
-    }
-    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    testImplementation(platform("org.junit:junit-bom:5.10.1"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    implementation("org.json:json:20240303")
+    implementation("org.slf4j:slf4j-nop:2.0.11")
+    implementation("com.jayway.jsonpath:json-path:2.9.0")
+    implementation("net.minidev:json-smart:2.5.0")
 }
 
-tasks.withType<Test> {
+tasks.test {
     useJUnitPlatform()
 }
 
-jlink {
-    imageZip.set(layout.buildDirectory.file("/distributions/app-${javafx.platform.classifier}.zip"))
-    options.set(listOf("--strip-debug", "--compress", "2", "--no-header-files", "--no-man-pages"))
-    launcher {
-        name = "app"
-    }
+javafx {
+    version = "21.0.2"
+    modules("javafx.controls", "javafx.fxml")
+}
+
+application {
+    mainClass.set("edu.bsu.cs.Launcher")
 }
