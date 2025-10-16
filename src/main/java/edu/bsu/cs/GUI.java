@@ -71,7 +71,72 @@ public class GUI extends Application {
 
         // Connect to the Adding Game
         AddingGame addingGame = new AddingGame();
-        adding.setOnAction(e -> addingGame.start(primaryStage, font, menuScene));
+        adding.setOnAction(e -> addingGame.start(primaryStage, font, menuScene, backgroundImage));
+
+        //Create Exit Screen scene
+        Pane secondLayout = new Pane();
+        secondLayout.setBackground(new Background(backgroundImage));
+        Scene exitScene = new Scene(secondLayout, 1600, 900);
+        exit.setOnAction(e -> primaryStage.setScene(exitScene));
+
+        //Exit Screen header
+        Label exitHeader = new Label("      ARE YOU SURE");
+        exitHeader.setPrefWidth(660);
+        exitHeader.setPrefHeight(100);
+        exitHeader.setLayoutX(380);
+        exitHeader.setLayoutY(80);
+        exitHeader.setStyle(
+                "-fx-background-radius: 25;" +
+                        "-fx-background-color: #ebc334;" +
+                        "-fx-padding: 10 20 10 20;" +
+                        "-fx-font-family: '" + font.getFamily() + "';" +
+                        "-fx-font-size: 50px;" +
+                        "-fx-border-radius: 20;" +
+                        "-fx-border-color: black;" +
+                        "-fx-border-width: 6px;" +
+                        "-fx-font-weight: bold;"
+        );
+        secondLayout.getChildren().add(exitHeader);
+
+        //"NO" button (relaunches Menu)
+        Button backButton = new Button("NO");
+        backButton.setPrefWidth(200);
+        backButton.setPrefHeight(75);
+        backButton.setLayoutX(850);
+        backButton.setLayoutY(500);
+        backButton.setStyle(
+                "-fx-background-radius: 25;" +
+                        "-fx-background-color: #ebc334;" +
+                        "-fx-padding: 10 20 10 20;" +
+                        "-fx-font-family: '" + font.getFamily() + "';" +
+                        "-fx-font-size: 20px;" +
+                        "-fx-border-radius: 20;" +
+                        "-fx-border-color: black;" +
+                        "-fx-border-width: 3px;" +
+                        "-fx-font-weight: bold;"
+        );
+        backButton.setOnAction(e -> primaryStage.setScene(menuScene));
+
+        //"YES" button (Exits application)
+        Button quit = new Button("YES");
+        quit.setPrefWidth(200);
+        quit.setPrefHeight(75);
+        quit.setLayoutX(360);
+        quit.setLayoutY(500);
+        quit.setStyle(
+                "-fx-background-radius: 25;" +
+                        "-fx-background-color: #eb4634;" +
+                        "-fx-padding: 10 20 10 20;" +
+                        "-fx-font-family: '" + font.getFamily() + "';" +
+                        "-fx-font-size: 20px;" +
+                        "-fx-border-radius: 20;" +
+                        "-fx-border-color: black;" +
+                        "-fx-border-width: 3px;" +
+                        "-fx-font-weight: bold;"
+        );
+        quit.setOnAction(e -> primaryStage.close());
+
+        secondLayout.getChildren().addAll(backButton, quit);
 
         // Set up stage
         primaryStage.setScene(menuScene);

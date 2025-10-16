@@ -3,6 +3,8 @@ package edu.bsu.cs;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -13,10 +15,10 @@ public class AddingGame {
     private final Random random = new Random();
     private int score = 0;
 
-    public void start(Stage stage, Font font, Scene mainMenuScene) {
+    public void start(Stage stage, Font font, Scene mainMenuScene, BackgroundImage backgroundImage) {
         VBox root = new VBox(25);
         root.setAlignment(Pos.TOP_CENTER);
-        root.setStyle("-fx-background-color: #f6e58d; -fx-padding: 40;");
+        root.setBackground(new Background(backgroundImage));
 
         // Title
         Label title = new Label("🎲 Adding Game 🎲");
@@ -44,6 +46,7 @@ public class AddingGame {
         answerInput.setStyle(
                 "-fx-font-size: 22px;" +
                         "-fx-padding: 8;" +
+                        "-fx-font-family: '" + font.getFamily() + "';" +
                         "-fx-background-color: white;" +
                         "-fx-border-color: black;" +
                         "-fx-border-radius: 10;" +
@@ -56,12 +59,19 @@ public class AddingGame {
         submitButton.setStyle(
                 "-fx-background-color: #55efc4;" +
                         "-fx-border-color: black;" +
+                        "-fx-font-family: '" + font.getFamily() + "';" +
                         "-fx-border-width: 3px;" +
                         "-fx-background-radius: 20;" +
                         "-fx-border-radius: 20;" +
                         "-fx-font-size: 18px;" +
                         "-fx-font-weight: bold;"
         );
+
+        answerInput.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                submitButton.fire();
+            }
+        });
 
         // Roll button
         Button rollButton = new Button("ROLL DICE");
@@ -70,6 +80,7 @@ public class AddingGame {
                 "-fx-background-color: #ebc334;" +
                         "-fx-border-color: black;" +
                         "-fx-border-width: 3px;" +
+                        "-fx-font-family: '" + font.getFamily() + "';" +
                         "-fx-background-radius: 20;" +
                         "-fx-border-radius: 20;" +
                         "-fx-font-size: 20px;" +
@@ -78,11 +89,12 @@ public class AddingGame {
 
         // Back button
         Button backButton = new Button("BACK TO MENU");
-        backButton.setPrefSize(200, 60);
+        backButton.setPrefSize(250, 60);
         backButton.setStyle(
                 "-fx-background-color: #ff7675;" +
                         "-fx-border-color: black;" +
                         "-fx-border-width: 3px;" +
+                        "-fx-font-family: '" + font.getFamily() + "';" +
                         "-fx-background-radius: 20;" +
                         "-fx-border-radius: 20;" +
                         "-fx-font-size: 18px;" +
