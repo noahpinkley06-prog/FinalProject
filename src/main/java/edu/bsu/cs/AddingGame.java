@@ -83,3 +83,66 @@ public class AddingGame {
                         "-fx-font-size: 18px;" +
                         "-fx-font-weight: bold;"
         );
+
+        final int[] dice1 = {0};
+        final int[] dice2 = {0};
+
+        // Roll action
+        rollButton.setOnAction(e -> {
+            dice1[0] = random.nextInt(6) + 1;
+            dice2[0] = random.nextInt(6) + 1;
+            dice1Label.setText("Die 1: " + dice1[0]);
+            dice2Label.setText("Die 2: " + dice2[0]);
+            questionLabel.setText("What is " + dice1[0] + " + " + dice2[0] + "?");
+            answerInput.clear();
+            answerInput.requestFocus();
+        });
+
+        // Submit action
+        submitButton.setOnAction(e -> {
+            if (dice1[0] == 0 || dice2[0] == 0) {
+                questionLabel.setText("Please roll the dice first!");
+                return;
+            }
+            try {
+                int userAnswer = Integer.parseInt(answerInput.getText());
+                int correct = dice1[0] + dice2[0];
+                if (userAnswer == correct) {
+                    score++;
+                    scoreLabel.setText("Score: " + score);
+                    questionLabel.setText("✅ Correct! Roll again!");
+                } else {
+                    questionLabel.setText("❌ Oops! The answer was " + correct);
+                }
+                answerInput.clear();
+            } catch (NumberFormatException ex) {
+                questionLabel.setText("Please enter a valid number!");
+            }
+        });
+ // Back button action
+        backButton.setOnAction(e -> {
+            score = 0;
+            stage.setScene(mainMenuScene);
+        });
+ // Answer area (forces visibility)
+        VBox answerArea = new VBox(10, answerInput, submitButton);
+        answerArea.setAlignment(Pos.CENTER);
+        answerArea.setVisible(true);
+        answerArea.setManaged(true);
+ // Add everything
+        root.getChildren().addAll(
+                title,
+                scoreLabel,
+                dice1Label,
+                dice2Label,
+                questionLabel,
+                answerArea,
+                rollButton,
+                backButton
+        );
+
+        Scene scene = new Scene(root, 1600, 900);
+        stage.setScene(scene);
+        stage.show();
+    }
+}
