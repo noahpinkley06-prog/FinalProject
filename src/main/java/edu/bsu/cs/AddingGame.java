@@ -47,4 +47,15 @@ public class AddingGame {
                         "-fx-border-radius: 10;" +
                         "-fx-background-radius: 10;"
         );
-
+// Submit button
+        Button submitButton = new Button("SUBMIT");
+        submitButton.setPrefSize(150, 50);
+        submitButton.setStyle(
+                "-fx-background-color: #55efc4;" +
+                        "-fx-border-color: black;" +
+                        "-fx-border-width: 3px;" +
+                        "-fx-background-radius: 20;" +
+                        "-fx-border-radius: 20;" +
+                        "-fx-font-size: 18px;" +
+                        "-fx-font-weight: bold;"
+        );
