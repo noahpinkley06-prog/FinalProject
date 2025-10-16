@@ -34,3 +34,17 @@ public class AddingGame {
         Label dice2Label = new Label("Die 2: 🎲");
         Label questionLabel = new Label("Click ROLL to start!");
         questionLabel.setStyle("-fx-font-size: 26px; -fx-font-weight: bold;");
+ // TextField for answer
+        TextField answerInput = new TextField();
+        answerInput.setPromptText("Enter your answer here");
+        answerInput.setMaxWidth(200);
+        answerInput.setVisible(true);
+        answerInput.setStyle(
+                "-fx-font-size: 22px;" +
+                        "-fx-padding: 8;" +
+                        "-fx-background-color: white;" +
+                        "-fx-border-color: black;" +
+                        "-fx-border-radius: 10;" +
+                        "-fx-background-radius: 10;"
+        );
+
