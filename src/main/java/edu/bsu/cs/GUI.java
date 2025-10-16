@@ -153,7 +153,7 @@ public class GUI extends Application {
         exit.setLayoutY(675);
         exit.setStyle(
                         "-fx-background-radius: 25;" +
-                        "-fx-background-color: #ebc334;" +
+                        "-fx-background-color: #eb4634;" +
                         "-fx-padding: 10 20 10 20;" +
                         "-fx-font-family: '" + font.getFamily() + "';" +
                         "-fx-font-size: 20px;" +
@@ -227,7 +227,7 @@ public class GUI extends Application {
         quit.setLayoutY(500);
         quit.setStyle(
                 "-fx-background-radius: 25;" +
-                        "-fx-background-color: #ebc334;" +
+                        "-fx-background-color: #eb4634;" +
                         "-fx-padding: 10 20 10 20;" +
                         "-fx-font-family: '" + font.getFamily() + "';" +
                         "-fx-font-size: 20px;" +
@@ -239,7 +239,6 @@ public class GUI extends Application {
         quit.setOnAction(e -> primaryStage.close());
 
         secondLayout.getChildren().addAll(backButton, quit);
-        //exit.setOnAction(e -> primaryStage.close());
 
 
 
@@ -247,8 +246,6 @@ public class GUI extends Application {
 
         // Add buttons to root
         root.getChildren().addAll(memory, adding, colorMatch, counting, abc,  exit);
-
-
 
         // Set up stage
         primaryStage.setScene(scene);
