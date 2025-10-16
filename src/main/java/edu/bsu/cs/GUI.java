@@ -53,12 +53,12 @@ public class GUI extends Application {
         root.getChildren().add(title);
 
         // Buttons
-        Button memory = createMenuButton("MEMORY", 765, 500, font);
-        Button colorMatch = createMenuButton("COLOR MATCH", 568, 350, font);
-        Button counting = createMenuButton("COUNTING", 315, 350, font);
-        Button adding = createMenuButton("ADDING", 465, 500, font);
-        Button abc = createMenuButton("ABC'S", 915, 350, font);
-        Button exit = createMenuButton("EXIT", 615, 675, font);
+        Button memory = createMenuButton("MEMORY", 765, 500, 200, font);
+        Button colorMatch = createMenuButton("COLOR MATCH", 568, 350, 300, font);
+        Button counting = createMenuButton("COUNTING", 315, 350, 200, font);
+        Button adding = createMenuButton("ADDING", 465, 500, 200, font);
+        Button abc = createMenuButton("ABC'S", 915, 350, 200, font);
+        Button exit = createMenuButton("EXIT", 615, 675, 200, font);
 
         // Exit action
         exit.setOnAction(e -> primaryStage.close());
@@ -82,9 +82,9 @@ public class GUI extends Application {
     /**
      * Helper method to create styled menu buttons
      */
-    private Button createMenuButton(String text, double x, double y, Font font) {
+    private Button createMenuButton(String text, double x, double y, double W, Font font) {
         Button button = new Button(text);
-        button.setPrefWidth(200);
+        button.setPrefWidth(W);
         button.setPrefHeight(75);
         button.setLayoutX(x);
         button.setLayoutY(y);
