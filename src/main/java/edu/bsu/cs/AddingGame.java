@@ -27,3 +27,6 @@ public class AddingGame {
                         "-fx-font-size: 60px;" +
                         "-fx-font-weight: bold;"
         );
+// Score
+        Label scoreLabel = new Label("Score: 0");
+        scoreLabel.setStyle("-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2d3436;");
