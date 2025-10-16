@@ -1,4 +1,3 @@
-
 package edu.bsu.cs;
 
 import javafx.geometry.Pos;
@@ -26,15 +25,18 @@ public class AddingGame {
                         "-fx-font-size: 60px;" +
                         "-fx-font-weight: bold;"
         );
-// Score
+
+        // Score
         Label scoreLabel = new Label("Score: 0");
         scoreLabel.setStyle("-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2d3436;");
-// Dice and question
+
+        // Dice and question
         Label dice1Label = new Label("Die 1: 🎲");
         Label dice2Label = new Label("Die 2: 🎲");
         Label questionLabel = new Label("Click ROLL to start!");
         questionLabel.setStyle("-fx-font-size: 26px; -fx-font-weight: bold;");
- // TextField for answer
+
+        // TextField for answer
         TextField answerInput = new TextField();
         answerInput.setPromptText("Enter your answer here");
         answerInput.setMaxWidth(200);
@@ -47,7 +49,8 @@ public class AddingGame {
                         "-fx-border-radius: 10;" +
                         "-fx-background-radius: 10;"
         );
-// Submit button
+
+        // Submit button
         Button submitButton = new Button("SUBMIT");
         submitButton.setPrefSize(150, 50);
         submitButton.setStyle(
@@ -59,7 +62,8 @@ public class AddingGame {
                         "-fx-font-size: 18px;" +
                         "-fx-font-weight: bold;"
         );
-// Roll button
+
+        // Roll button
         Button rollButton = new Button("ROLL DICE");
         rollButton.setPrefSize(200, 75);
         rollButton.setStyle(
@@ -71,7 +75,8 @@ public class AddingGame {
                         "-fx-font-size: 20px;" +
                         "-fx-font-weight: bold;"
         );
-// Back button
+
+        // Back button
         Button backButton = new Button("BACK TO MENU");
         backButton.setPrefSize(200, 60);
         backButton.setStyle(
@@ -119,17 +124,20 @@ public class AddingGame {
                 questionLabel.setText("Please enter a valid number!");
             }
         });
- // Back button action
+
+        // Back button action
         backButton.setOnAction(e -> {
             score = 0;
             stage.setScene(mainMenuScene);
         });
- // Answer area (forces visibility)
+
+        // Answer area (forces visibility)
         VBox answerArea = new VBox(10, answerInput, submitButton);
         answerArea.setAlignment(Pos.CENTER);
         answerArea.setVisible(true);
         answerArea.setManaged(true);
- // Add everything
+
+        // Add everything
         root.getChildren().addAll(
                 title,
                 scoreLabel,
