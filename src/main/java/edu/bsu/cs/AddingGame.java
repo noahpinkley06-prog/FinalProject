@@ -59,3 +59,27 @@ public class AddingGame {
                         "-fx-font-size: 18px;" +
                         "-fx-font-weight: bold;"
         );
+// Roll button
+        Button rollButton = new Button("ROLL DICE");
+        rollButton.setPrefSize(200, 75);
+        rollButton.setStyle(
+                "-fx-background-color: #ebc334;" +
+                        "-fx-border-color: black;" +
+                        "-fx-border-width: 3px;" +
+                        "-fx-background-radius: 20;" +
+                        "-fx-border-radius: 20;" +
+                        "-fx-font-size: 20px;" +
+                        "-fx-font-weight: bold;"
+        );
+// Back button
+        Button backButton = new Button("BACK TO MENU");
+        backButton.setPrefSize(200, 60);
+        backButton.setStyle(
+                "-fx-background-color: #ff7675;" +
+                        "-fx-border-color: black;" +
+                        "-fx-border-width: 3px;" +
+                        "-fx-background-radius: 20;" +
+                        "-fx-border-radius: 20;" +
+                        "-fx-font-size: 18px;" +
+                        "-fx-font-weight: bold;"
+        );
