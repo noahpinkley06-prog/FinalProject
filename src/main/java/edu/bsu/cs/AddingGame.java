@@ -29,3 +29,8 @@ public class AddingGame {
 // Score
         Label scoreLabel = new Label("Score: 0");
         scoreLabel.setStyle("-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2d3436;");
+// Dice and question
+        Label dice1Label = new Label("Die 1: 🎲");
+        Label dice2Label = new Label("Die 2: 🎲");
+        Label questionLabel = new Label("Click ROLL to start!");
+        questionLabel.setStyle("-fx-font-size: 26px; -fx-font-weight: bold;");
