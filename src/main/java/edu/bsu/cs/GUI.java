@@ -25,6 +25,9 @@ public class GUI extends Application {
         Pane root = new Pane();
         root.setStyle("-fx-padding: 10;");
 
+        // Create scene
+        Scene scene = new Scene(root, 1400, 900);
+
         // Add a title label
         Label title = new Label("      Thinkin Tods");
         title.setPrefWidth(800);
@@ -176,13 +179,76 @@ public class GUI extends Application {
 
 
         // Add action for exit
-        exit.setOnAction(e -> primaryStage.close());
+        Pane secondLayout = new Pane();
+        secondLayout.setBackground(new Background(backgroundImage));
+        Scene exitScene = new Scene(secondLayout, 1400, 900);
+        exit.setOnAction(e -> primaryStage.setScene(exitScene));
+
+        Label exitHeader = new Label("      ARE YOU SURE");
+        exitHeader.setPrefWidth(660);
+        exitHeader.setPrefHeight(100);
+        exitHeader.setLayoutX(380);
+        exitHeader.setLayoutY(80);
+        exitHeader.setStyle(
+                "-fx-background-radius: 25;" +
+                        "-fx-background-color: #ebc334;" +
+                        "-fx-padding: 10 20 10 20;" +
+                        "-fx-font-family: '" + font.getFamily() + "';" +
+                        "-fx-font-size: 50px;" +
+                        "-fx-border-radius: 20;" +
+                        "-fx-border-color: black;" +
+                        "-fx-border-width: 6px;" +
+                        "-fx-font-weight: bold;"
+        );
+        secondLayout.getChildren().add(exitHeader);
+
+        Button backButton = new Button("NO");
+        backButton.setPrefWidth(200);
+        backButton.setPrefHeight(75);
+        backButton.setLayoutX(850);
+        backButton.setLayoutY(500);
+        backButton.setStyle(
+                "-fx-background-radius: 25;" +
+                        "-fx-background-color: #ebc334;" +
+                        "-fx-padding: 10 20 10 20;" +
+                        "-fx-font-family: '" + font.getFamily() + "';" +
+                        "-fx-font-size: 20px;" +
+                        "-fx-border-radius: 20;" +
+                        "-fx-border-color: black;" +
+                        "-fx-border-width: 3px;" +
+                        "-fx-font-weight: bold;"
+        );
+        backButton.setOnAction(e -> primaryStage.setScene(scene));
+
+        Button quit = new Button("YES");
+        quit.setPrefWidth(200);
+        quit.setPrefHeight(75);
+        quit.setLayoutX(360);
+        quit.setLayoutY(500);
+        quit.setStyle(
+                "-fx-background-radius: 25;" +
+                        "-fx-background-color: #ebc334;" +
+                        "-fx-padding: 10 20 10 20;" +
+                        "-fx-font-family: '" + font.getFamily() + "';" +
+                        "-fx-font-size: 20px;" +
+                        "-fx-border-radius: 20;" +
+                        "-fx-border-color: black;" +
+                        "-fx-border-width: 3px;" +
+                        "-fx-font-weight: bold;"
+        );
+        quit.setOnAction(e -> primaryStage.close());
+
+        secondLayout.getChildren().addAll(backButton, quit);
+        //exit.setOnAction(e -> primaryStage.close());
+
+
+
+
 
         // Add buttons to root
         root.getChildren().addAll(memory, adding, colorMatch, counting, abc,  exit);
 
-        // Create scene
-        Scene scene = new Scene(root, 1600, 900);
+
 
         // Set up stage
         primaryStage.setScene(scene);
