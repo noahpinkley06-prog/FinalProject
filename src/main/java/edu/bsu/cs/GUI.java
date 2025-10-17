@@ -1,7 +1,6 @@
 package edu.bsu.cs;
 
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -35,19 +34,13 @@ public class GUI extends Application {
 
         // Title
         Label title = new Label("      Thinkin Tods");
-        title.setPrefWidth(800);
-        title.setPrefHeight(100);
-        title.setLayoutX(315);
-        title.setLayoutY(30);
+        title.setPrefWidth(1200);
+        title.setPrefHeight(50);
+        title.setLayoutX(90);
+        title.setLayoutY(0);
         title.setStyle(
-                "-fx-background-radius: 25;" +
-                        "-fx-background-color: #ebc334;" +
-                        "-fx-padding: 10 20 10 20;" +
                         "-fx-font-family: '" + font.getFamily() + "';" +
-                        "-fx-font-size: 70px;" +
-                        "-fx-border-radius: 20;" +
-                        "-fx-border-color: black;" +
-                        "-fx-border-width: 6px;" +
+                        "-fx-font-size: 120px;" +
                         "-fx-font-weight: bold;"
         );
         root.getChildren().add(title);
@@ -67,11 +60,15 @@ public class GUI extends Application {
         root.getChildren().addAll(memory, adding, colorMatch, counting, abc, exit);
 
         // Create main menu scene
-        Scene menuScene = new Scene(root, 1600, 900);
+        Scene menuScene = new Scene(root, 1450, 900);
 
         // Connect to the Adding Game
         AddingGame addingGame = new AddingGame();
         adding.setOnAction(e -> addingGame.start(primaryStage, font, menuScene, backgroundImage));
+
+        //Connect to Counting Game
+        CountingGame countingGame = new CountingGame();
+        counting.setOnAction(e -> countingGame.start(primaryStage, font, menuScene, backgroundImage));
 
         //Create Exit Screen scene
         Pane secondLayout = new Pane();
@@ -87,7 +84,7 @@ public class GUI extends Application {
         exitHeader.setLayoutY(80);
         exitHeader.setStyle(
                 "-fx-background-radius: 25;" +
-                        "-fx-background-color: #ebc334;" +
+                        "-fx-background-color: #ff7675;" +
                         "-fx-padding: 10 20 10 20;" +
                         "-fx-font-family: '" + font.getFamily() + "';" +
                         "-fx-font-size: 50px;" +
@@ -125,7 +122,7 @@ public class GUI extends Application {
         quit.setLayoutY(500);
         quit.setStyle(
                 "-fx-background-radius: 25;" +
-                        "-fx-background-color: #eb4634;" +
+                        "-fx-background-color: #ff7675;" +
                         "-fx-padding: 10 20 10 20;" +
                         "-fx-font-family: '" + font.getFamily() + "';" +
                         "-fx-font-size: 20px;" +

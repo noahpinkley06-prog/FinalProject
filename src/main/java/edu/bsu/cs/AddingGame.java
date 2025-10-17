@@ -3,7 +3,6 @@ package edu.bsu.cs;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
@@ -21,10 +20,10 @@ public class AddingGame {
         root.setBackground(new Background(backgroundImage));
 
         // Title
-        Label title = new Label("🎲 Adding Game 🎲");
+        Label title = new Label("Adding Game ");
         title.setStyle(
                 "-fx-font-family: '" + font.getFamily() + "';" +
-                        "-fx-font-size: 60px;" +
+                        "-fx-font-size: 75px;" +
                         "-fx-font-weight: bold;"
         );
 
@@ -40,8 +39,8 @@ public class AddingGame {
 
         // TextField for answer
         TextField answerInput = new TextField();
-        answerInput.setPromptText("Enter your answer here");
-        answerInput.setMaxWidth(200);
+        answerInput.setPromptText("enter answer here");
+        answerInput.setMaxWidth(250);
         answerInput.setVisible(true);
         answerInput.setStyle(
                 "-fx-font-size: 22px;" +
@@ -161,7 +160,7 @@ public class AddingGame {
                 backButton
         );
 
-        Scene scene = new Scene(root, 1600, 900);
+        Scene scene = new Scene(root, 1450, 900);
         stage.setScene(scene);
         stage.show();
     }
