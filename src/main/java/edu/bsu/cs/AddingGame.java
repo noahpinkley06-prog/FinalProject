@@ -29,13 +29,23 @@ public class AddingGame {
 
         // Score
         Label scoreLabel = new Label("Score: 0");
-        scoreLabel.setStyle("-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2d3436;");
+        scoreLabel.setStyle(
+                "-fx-font-size: 28px; " +
+                        "-fx-font-weight: bold; " +
+                        "-fx-text-fill: #2d3436; "
+                        //+ "-fx-font-family: '" + font.getFamily() + "';"
+        );
 
         // Dice and question
         Label dice1Label = new Label("Die 1: 🎲");
         Label dice2Label = new Label("Die 2: 🎲");
         Label questionLabel = new Label("Click ROLL to start!");
-        questionLabel.setStyle("-fx-font-size: 26px; -fx-font-weight: bold;");
+        questionLabel.setAlignment(Pos.CENTER);
+        questionLabel.setStyle(
+                "-fx-font-size: 26px; " +
+                        "-fx-font-weight: bold;"
+                         //+ "-fx-font-family: '" + font.getFamily() + "';"
+        );
 
         // TextField for answer
         TextField answerInput = new TextField();
@@ -102,9 +112,11 @@ public class AddingGame {
 
         final int[] dice1 = {0};
         final int[] dice2 = {0};
+        final int[] state = {0};
 
         // Roll action
         rollButton.setOnAction(e -> {
+            state[0] = 1;
             dice1[0] = random.nextInt(6) + 1;
             dice2[0] = random.nextInt(6) + 1;
             dice1Label.setText("Die 1: " + dice1[0]);
@@ -116,7 +128,7 @@ public class AddingGame {
 
         // Submit action
         submitButton.setOnAction(e -> {
-            if (dice1[0] == 0 || dice2[0] == 0) {
+            if (state[0] == 0) {
                 questionLabel.setText("Please roll the dice first!");
                 return;
             }
@@ -131,6 +143,7 @@ public class AddingGame {
                     questionLabel.setText("❌ Oops! The answer was " + correct);
                 }
                 answerInput.clear();
+                state[0] = 0;
             } catch (NumberFormatException ex) {
                 questionLabel.setText("Please enter a valid number!");
             }

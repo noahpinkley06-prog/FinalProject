@@ -15,7 +15,7 @@ public class GUI extends Application {
     public void start(Stage primaryStage) {
 
         // Load custom font
-        Font font = Font.loadFont(getClass().getResourceAsStream("/SquireHawaii.otf"), 20);
+        Font font = Font.loadFont(getClass().getResourceAsStream("/SquireHawaii.otf"), 10);
 
         // Create the main menu layout
         Pane root = new Pane();
