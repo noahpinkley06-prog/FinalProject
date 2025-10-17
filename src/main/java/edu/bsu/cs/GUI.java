@@ -62,6 +62,10 @@ public class GUI extends Application {
         // Create main menu scene
         Scene menuScene = new Scene(root, 1450, 900);
 
+
+
+
+
         // Connect to the Adding Game
         AddingGame addingGame = new AddingGame();
         adding.setOnAction(e -> addingGame.start(primaryStage, font, menuScene, backgroundImage));
@@ -69,6 +73,13 @@ public class GUI extends Application {
         //Connect to Counting Game
         CountingGame countingGame = new CountingGame();
         counting.setOnAction(e -> countingGame.start(primaryStage, font, menuScene, backgroundImage));
+
+        // Connect to the Adding Game
+        ABCGame abcGame = new ABCGame();
+        abc.setOnAction(e -> abcGame.start(primaryStage, font, menuScene, backgroundImage));
+
+
+
 
         //Create Exit Screen scene
         Pane secondLayout = new Pane();
